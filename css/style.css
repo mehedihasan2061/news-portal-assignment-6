@@ -1,0 +1,72 @@
+.display-none{
+    display: block;
+  
+  }
+  #categorySection{
+    display: none;
+  }
+
+  .navrel{
+    position: relative;
+  }
+
+
+
+  span :hover{
+      background: #EEEFFF;
+      border-radius: 4px;
+  }
+  
+    .bg-smallBg{
+      background: #EEEFFF;
+    } 
+    
+  
+    @media (max-width:1024px) {
+
+      #clickedToggle {
+        position: absolute;
+        z-index: 999;
+        left: 154px;
+    }
+      .toggleList{
+        display: none;
+          }
+  
+    #categorySection{
+    display: block;
+  }
+  
+  #categories{
+    display: block;
+  }
+    #categorySection:hover  #categories span{
+      display: block;
+    }
+   
+   
+    #categories span {
+      
+      width: 200px;
+      height: auto;
+      background: #EEEFFF;
+      padding: 6px;
+      display: block;
+  }
+    }
+  
+  
+    @media (max-width:640px) {
+      .image-grid{
+        grid-column-start: 1;
+        grid-column-end: 7
+      }
+      .cart-grid{
+        grid-column-start: 1;
+        grid-column-end: 7
+      }
+      .details{
+        display: none;
+      }
+    
+    }

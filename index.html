@@ -2,25 +2,168 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impormation Update</title>
-    <!-- bootstrap link  -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News24</title>
+  <link rel="shortcut icon" href="./images.png" type="image/x-icon">
+  <!-- link google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <!-- font awesome cdn -->
+  <script src="https://kit.fontawesome.com/2cdefe7f54.js" crossorigin="anonymous"></script>
+
+  <!-- daisyui and tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      extend: {
+        fontFamily: {
+          'roboto': ['Roboto', 'sans-serif'],
+        },
+        colors: {
+          primary: '#5D5FEF',
+          ui: '#F6F6F6',
+          smallBg: '#EEEFFF',
+          rg: '#ff0000'
+        }
+      }
+    }
+
+  </script>
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 
-<body>
+<body class="font-roboto bg-ui p-0">
+
+  <header>
+    <!-- navbar section -->
+    <!-- This example requires Tailwind CSS v2.0+ -->
+    <div class="navrel">
+      <nav class="">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+
+            <div class="flex items-center justify-around ">
+              <div class="flex flex-shrink-0 items-center">
+                <h2 class="block  rounded w-auto bg-smallBg text-primary font-bold text-2xl p-3 text-center">
+
+                 News 24 </h2>
+                <a id="categorySection" class="text-gray-600 text-lg font-bold mx-2 cursor-pointer"> categories</a>
+
+              </div>
+
+            </div>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <h6 class="text-primary text-lg font-bold mx-2  cursor-pointer"> News</h6>
+              <a href="./blog.html" class="text-gray-600 text-lg font-bold mx-2 cursor-pointer"> Blog</a>
+
+              <!-- Profile dropdown -->
+              <div class="relative ml-3">
+                <div>
+                  <button type="button"
+                    class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="h-8 w-8 rounded-full"
+                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                      alt="">
+                  </button>
+                </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-        crossorigin="anonymous"></script>
 
-    <script src="js/app.js"></script>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </nav>
+      <hr>
+
+      <!-- news portal headers listes -->
+      <div class="toggleList" id="clickedToggle">
+        <section id="categories" class="flex flex-wrap justify-around items-center py-4 w-3/4 mx-auto">
+
+
+        </section>
+      </div>
+    </div>
+
+
+  </header>
+
+
+  <!-- main ui -->
+
+  <main class="container m-auto">
+    <!-- Loaders  -->
+    <div class=" mx-auto text-center"> <progress id="spinner" class="progress w-4/5 hidden"></progress></div>
+    <!-- error cart -->
+    <section>
+      <div class="card w-3/4 mx-auto my-5 bg-base-100 shadow-xl">
+        <div class="card-body ">
+
+
+          <h2 id="errMsg" class="text-2xl font-bold">4 items found for category Entertainment</h2>
+
+
+
+        </div>
+    </section>
+    <!-- sort by -->
+
+    <section class="w-3/4 mx-auto my-5">
+      <label for="cars" class="font-bold">Sort By</label>
+      <select name="cars" id="selected-news" class="px-4 py-1 rounded shadow ">
+        <option hidden selected disabled>Default</option>
+        <option value="view">view</option>
+        <option value="rating">rating</option>
+
+
+      </select>
+    </section>
+    <!-- articles -->
+    <article id="newses">
+
+
+    </article>
+
+  </main>
+  <footer>
+    <div class=" mx-auto mt-5 py-5 text-center bg-base-100 shadow-xl">
+      <p class="text-gray-600 font-bold">Copyright &copy; 2021 News Portal</p>
+    </div>
+  </footer>
+  <!-- The button to open modal -->
+
+
+
+  <input type="checkbox" id="my-modal-5" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box h-11/12 w-11/12 max-w-5xl">
+      <div id="Detailmodal">
+
+      </div>
+
+      <div class="modal-action">
+        <label for="my-modal-5" class="btn">Close</label>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- link javaScript -->
+  <script src="./js/app.js"></script>
+  <script src="./js/news.js"></script>
+
 </body>
 
 </html>
+
